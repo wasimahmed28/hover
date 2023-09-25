@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* .container{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+} */
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+.circle {
+    cursor: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 50vw;
+    max-width: 50vh;
+    max-height: 50vh;
+    background: radial-gradient(circle,  rgba(255, 0, 0, 0.514) 15%,transparent 85%);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="circle"></div>
+    </div>
+    
+</body>
+<script src="app.js"></script>
+<script>
+    const circle = document.querySelector('.circle');
+
+document.addEventListener('mousemove', (e) => {
+    const x = e.clientX; 
+    const y = e.clientY; 
+    
+    circle.style.display = 'block'
+    circle.style.left = `${x}px`;
+    circle.style.top = `${y}px`;
+});
+
+document.addEventListener('mouseout', () => {
+    circle.style.display = 'none';
+});
+</script>
+</html>
